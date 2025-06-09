@@ -11,7 +11,7 @@
 
 - name: Include app prerequisites task in play
   ansible.builtin.include_tasks:
-    file: app_prerequisites.yaml
+    file: app_prerequisites.yml
 
 - name: Install NodeJS Dependencies
   ansible.builtin.npm:
