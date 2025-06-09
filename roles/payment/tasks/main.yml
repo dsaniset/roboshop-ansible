@@ -1,5 +1,5 @@
 - name: Set prompt name
-  ansible.builtin.shel: set-prompt payment
+  ansible.builtin.shell: set-prompt {{ app_name }}
 
 - name: Install python
   ansible.builtin.include_role:
