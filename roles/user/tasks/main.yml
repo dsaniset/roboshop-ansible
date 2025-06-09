@@ -4,4 +4,4 @@
 - name: Include nodejs
   ansible.builtin.include_tasks:
     name: common
-    tasks_from: nodejs.yml
+    tasks_from: nodejs
