@@ -1,3 +1,6 @@
+- name: Set prompt name
+  ansible.builtin.shell: set-prompt frontend
+
 - name: Disable Default Nginx
   ansible.builtin.shell: dnf module disable nginx -y
 
@@ -26,7 +29,7 @@
 
 - name: Download Application content
   ansible.builtin.unarchive:
-    src: https://roboshop-artifacts.s3.amazonaws.com/frontend-v3.zip
+    src: https://roboshop-artifacts.s3.amazonaws.com/{{ app_name }}-v3.zip
     dest: /usr/share/nginx/html
     remote_src: yes
 
