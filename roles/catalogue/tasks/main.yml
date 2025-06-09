@@ -17,7 +17,7 @@
     state: installed
 
 - name: load master data
-  ansible.builtin.shell: mongosh --host mongodb.rdevopsb81.online </app/db/master-data.js
+  ansible.builtin.shell: mongosh --host mongodb.devops24.shop </app/db/master-data.js
 
 - name: Restart the systemd service
   ansible.builtin.systemd_service:
