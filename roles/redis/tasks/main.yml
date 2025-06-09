@@ -14,15 +14,15 @@
 
 - name: Replace hostname in conf file
   ansible.builtin.replace:
-    file: /etc/redis/redis.conf
-    regexp: 127.0.0.1
-    replace: 0.0.0.0
+    path: /etc/redis/redis.conf
+    regexp: '127.0.0.1'
+    replace: '0.0.0.0'
 
 - name: Replace the protected mode
   ansible.builtin.lineinfile:
-    file: /etc/redis/redis/conf
+    path: /etc/redis/redis/conf
     regexp: 'protected-mode'
-    replace: protected-mode no
+    replace: 'protected-mode no'
 
 - name: Include common role
   ansible.builtin.systemd_service:
