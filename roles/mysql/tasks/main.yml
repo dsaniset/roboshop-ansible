@@ -3,7 +3,7 @@
 
 - name: Install mongodb service
   ansible.builtin.dnf:
-    name: mongod
+    name: mongodb-org
     state: installed
 
 - name: Restart systemctl services
