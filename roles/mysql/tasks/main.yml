@@ -4,7 +4,7 @@
 - name: Install mongodb service
   ansible.builtin.dnf:
     name: mysqld
-    state: restarted
+    state: installed
     enabled: true
 
 - name: Setup MySQL Password
