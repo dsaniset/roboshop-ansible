@@ -1,9 +1,9 @@
 - name: set prompt name
   ansible.builtin.shell: set-prompt {{ app_name }}
 
-- name: Install mongodb service
+- name: Install mysql server
   ansible.builtin.dnf:
-    name: mongodb-org
+    name: mysql-server
     state: installed
 
 - name: Restart systemctl services
