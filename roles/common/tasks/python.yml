@@ -9,7 +9,7 @@
 
 - name: Include pre requisites task
   ansible.builtin.include_tasks:
-    file: app_prerequisites
+    file: app_prerequisites.yml
 
 - name: Download application dependencies
   ansible.builtin.pip:

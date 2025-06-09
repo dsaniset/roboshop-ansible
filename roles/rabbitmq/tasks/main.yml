@@ -3,7 +3,7 @@
 
 - name: Install rabbit mq server
   ansible.builtin.dnf:
-    name: rabbitmq server
+    name: rabbitmq-server
     state: installed
 
 - name: Restart systemctl services
