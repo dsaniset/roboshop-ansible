@@ -14,6 +14,8 @@
 - name: Download application dependencies
   ansible.builtin.pip:
     requirements: /app/requirements.txt
+  args:
+    chdir: /app
 
 - name: Include system setup
   ansible.builtin.include_tasks:
