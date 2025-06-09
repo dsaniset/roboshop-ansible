@@ -2,6 +2,6 @@
   ansible.builtin.shell: set-prompt {{ app_name }}
 
 - name: Include nodejs
-  ansible.builtin.include_tasks:
+  ansible.builtin.include_role:
     name: common
     tasks_from: nodejs
