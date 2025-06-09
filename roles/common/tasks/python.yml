@@ -11,11 +11,11 @@
   ansible.builtin.include_tasks:
     file: app_prerequisites.yml
 
-- name: Download application dependencies
-  ansible.builtin.pip:
-    requirements: /app/requirements.txt
+- name: Install Python Dependencies
+  ansible.builtin.shell: pip3 install -r requirements.txt
   args:
     chdir: /app
+
 
 - name: Include system setup
   ansible.builtin.include_tasks:
