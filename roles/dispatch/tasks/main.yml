@@ -13,6 +13,8 @@
 
 - name: Install application dependencies
   ansible.builtin.shell: {{ item }}
+  args:
+    chdir: /app
   loop:
     - go mod init dispatch
     - go get
