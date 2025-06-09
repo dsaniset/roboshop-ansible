@@ -12,7 +12,7 @@
     tasks_from: app_prerequisites
 
 - name: Install application dependencies
-  ansible.builtin.shell: {{ item }}
+  ansible.builtin.shell: "{{ item }}"
   args:
     chdir: /app
   loop:
