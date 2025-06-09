@@ -4,4 +4,4 @@
 - name: Include nodejs file
   ansible.builtin.include_role:
     name: common
-    file_name: nodejs
+    tasks_from: nodejs
