@@ -1,6 +1,11 @@
 - name: set prompt name
   ansible.builtin.shell: set-prompt {{ app_name }}
 
+- name: Copy RabbitMQ Repo file
+  ansible.builtin.copy:
+    src: rabbitmq.repo
+    dest: /etc/yum.repos.d/rabbitmq.repo
+
 - name: Install rabbit mq server
   ansible.builtin.dnf:
     name: rabbitmq-server
