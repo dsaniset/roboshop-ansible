@@ -1,0 +1,25 @@
+- name: Set prompt name
+  ansible.builtin.shell: set-prompt {{ app_name }}
+
+- name: Include nodejs
+  ansible.builtin.include_role:
+    name: common
+    file_name: nodejs
+
+- name: Copy MongoDB repo file
+  ansible.builtin.copy:
+    src: mongodb.repo
+    dest: /etc/yum.repos.d/mongodb.repo
+
+- name: Install MongoDB Client
+  ansible.builtin.dnf:
+    name: mongodb-mongosh
+    state: installed
+
+- name: load master data
+  ansible.builtin.shell: mongosh --host mongodb.rdevopsb81.online </app/db/master-data.js
+
+- name: Restart the systemd service
+  ansible.builtin.systemd_service:
+    name: nodejs
+    state: restarted

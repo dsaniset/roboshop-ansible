@@ -1,0 +1,20 @@
+- name: Install python
+  ansible.builtin.dnf:
+    name: "{{ item }}"
+    state: installed
+  loop:
+    - python3
+    - gcc
+    - python3-devel
+
+- name: Include pre requisites task
+  ansible.builtin.include_tasks:
+    file: app_prerequisites
+
+- name: Download application dependencies
+  ansible.builtin.pip:
+    requirements: /app/requirements.txt
+
+- name: Include system setup
+  ansible.builtin.include_tasks:
+    file: systemd_setup.yml

@@ -1,0 +1,7 @@
+- name: Set prompt name
+  ansible.builtin.shell: set-prompt {{ app_name }}
+
+- name: Include nodejs
+  ansible.builtin.include_tasks:
+    name: common
+    tasks_from: nodejs.yml

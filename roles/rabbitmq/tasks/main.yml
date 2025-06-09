@@ -1,0 +1,23 @@
+- name: set prompt name
+  ansible.builtin.shell: set-prompt {{ app_name }}
+
+- name: Install rabbit mq server
+  ansible.builtin.dnf:
+    name: rabbitmq server
+    state: installed
+
+- name: Restart systemctl services
+  ansible.builtin.systems_service:
+    name: rabbitmq-server
+    state: restarted
+    enabled: true
+
+- name: Add rabbitmq username and password
+  community.rabbitmq.rabbitmq_user:
+    user: roboshop
+    password: roboshop123
+    vhost: /
+    configure_priv: .*
+    read_priv: .*
+    write_priv: .*
+    state: present

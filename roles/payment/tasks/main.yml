@@ -1,0 +1,7 @@
+- name: Set prompt name
+  ansible.builtin.shel: set-prompt payment
+
+- name: Install python
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: python

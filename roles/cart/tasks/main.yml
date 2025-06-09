@@ -1,0 +1,7 @@
+- name: set prompt name
+  ansible.builtin.shell: set-prompt {{ app_name }}
+
+- name: Include nodejs file
+  ansible.builtin.include_role:
+    name: common
+    file_name: nodejs
