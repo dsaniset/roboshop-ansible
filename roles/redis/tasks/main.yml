@@ -1,6 +1,3 @@
-- name: Set prompt name
-  ansible.builtin.shell: set prompt {{ app_name }}
-
 - name: Disable existing redis version
   ansible.builtin.shell: dnf module disable redis -y
 

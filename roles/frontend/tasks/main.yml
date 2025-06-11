@@ -1,6 +1,3 @@
-- name: Set prompt name
-  ansible.builtin.shell: set-prompt frontend
-
 - name: Disable Default Nginx
   ansible.builtin.shell: dnf module disable nginx -y
 

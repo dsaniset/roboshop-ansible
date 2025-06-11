@@ -1,6 +1,3 @@
-- name: set prompt name
-  ansible.builtin.shell: set-prompt {{ app_name }}
-
 - name: Include maven task
   ansible.builtin.include_role:
     name: common
@@ -12,7 +9,7 @@
     state: installed
 
 - name: Load SQL schema
-  ansible.builtin.shell: mysql -h mysql.devops24.shop -uroot -pRoboShop@1 < /app/db/{{ item }}.sql
+  ansible.builtin.shell: mysql -h mysql-{{ env }}.devops24.shop -uroot -pRoboShop@1 < /app/db/{{ item }}.sql
   loop:
     - schema
     - app-user
