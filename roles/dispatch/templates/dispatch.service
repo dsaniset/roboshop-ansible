@@ -1,10 +1,10 @@
 [Unit]
 Description = Dispatch Service
 [Service]
-User="{{ lookup('hashi_vault','roboshop-{{env}}/dispatch:User token={{vault_token}} url=http://vault-internal.devops24.shop:8200')}}"
-Environment=AMQP_HOST="{{ lookup('hashi_vault','roboshop-{{env}}/dispatch:AMQP_HOST token={{vault_token}} url=http://vault-internal.devops24.shop:8200')}}"
-Environment=AMQP_USER="{{ lookup('hashi_vault','roboshop-{{env}}/dispatch:AMQP_USER token={{vault_token}} url=http://vault-internal.devops24.shop:8200')}}"
-Environment=AMQP_PASS="{{ lookup('hashi_vault','roboshop-{{env}}/dispatch:AMQP_PASS token={{vault_token}} url=http://vault-internal.devops24.shop:8200')}}"
+User="{{ lookup('hashi_vault','roboshop-{{env}}/data/dispatch:User token={{vault_token}} url=http://vault-internal.devops24.shop:8200')}}"
+Environment=AMQP_HOST="{{ lookup('hashi_vault','roboshop-{{env}}/data/dispatch:AMQP_HOST token={{vault_token}} url=http://vault-internal.devops24.shop:8200')}}"
+Environment=AMQP_USER="{{ lookup('hashi_vault','roboshop-{{env}}/data/dispatch:AMQP_USER token={{vault_token}} url=http://vault-internal.devops24.shop:8200')}}"
+Environment=AMQP_PASS="{{ lookup('hashi_vault','roboshop-{{env}}/data/dispatch:AMQP_PASS token={{vault_token}} url=http://vault-internal.devops24.shop:8200')}}"
 ExecStart=/app/dispatch
 SyslogIdentifier=dispatch
 
