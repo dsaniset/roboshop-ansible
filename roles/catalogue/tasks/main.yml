@@ -14,7 +14,7 @@
     state: installed
 
 - name: load master data
-  ansible.builtin.shell: mongosh --host mongodb-{{ env }}.devops24.shop </app/db/master-data.js
+  ansible.builtin.shell: mongosh --host {{ lookup('hashi_vault','roboshop-{{env}}/data/shipping:DB_HOST token={{vault_token}} url=http://vault-internal.devops24.shop:8200')}} </app/{{ lookup('hashi_vault','roboshop-{{env}}/data/catalogue:SCHEMA_FILE token={{vault_token}} url=http://vault-internal.devops24.shop:8200')}}
 
 - name: Restart the systemd service
   ansible.builtin.systemd_service:

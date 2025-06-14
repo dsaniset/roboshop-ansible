@@ -9,7 +9,7 @@
     state: installed
 
 - name: Load SQL schema
-  ansible.builtin.shell: mysql -h mysql-{{ env }}.devops24.shop -uroot -pRoboShop@1 < /app/db/{{ item }}.sql
+  ansible.builtin.shell: mysql -h {{ lookup('hashi_vault','roboshop-{{env}}/data/shipping:DB_HOST token={{vault_token}} url=http://vault-internal.devops24.shop:8200')}} -u{{ lookup('hashi_vault','roboshop-{{env}}/data/shipping:DB_USER token={{vault_token}} url=http://vault-internal.devops24.shop:8200')}} -p{{ lookup('hashi_vault','roboshop-{{env}}/data/shipping:DB_PASS token={{vault_token}} url=http://vault-internal.devops24.shop:8200')}} < /app/db/{{ item }}.sql
   loop:
     - schema
     - app-user
