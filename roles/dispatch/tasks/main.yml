@@ -1,23 +1,36 @@
-- name: Install go lang
-  ansible.builtin.dnf:
-    name: golang
-    state: installed
+#- name: Install go lang
+#  ansible.builtin.dnf:
+#    name: golang
+#    state: installed
+#
+#- name: Include app prerequisites
+#  ansible.builtin.include_role:
+#    name: common
+#    tasks_from: app_prerequisites
+#
+#- name: Install application dependencies
+#  ansible.builtin.shell: "{{ item }}"
+#  args:
+#    chdir: /app
+#  loop:
+#    - go mod init dispatch
+#    - go get
+#    - go build
+#
+#- name: Install system service
+#  ansible.builtin.include_role:
+#    name: common
+#    tasks_from: systemd_setup
 
-- name: Include app prerequisites
-  ansible.builtin.include_role:
-    name: common
-    tasks_from: app_prerequisites
-
-- name: Install application dependencies
-  ansible.builtin.shell: "{{ item }}"
-  args:
-    chdir: /app
-  loop:
-    - go mod init dispatch
-    - go get
-    - go build
-
-- name: Install system service
-  ansible.builtin.include_role:
-    name: common
-    tasks_from: systemd_setup
+#- name: Restart a container
+#  containers.podman.podman_container:
+#    name: dispatch
+#    image:
+#    state: started
+#    restart: true
+#    restart_policy: "no"
+#    ports:
+#      - "8080:9090"
+#    env:
+#      SECRET_KEY: "ssssh"
+#      BOOLEAN_KEY: "yes"
