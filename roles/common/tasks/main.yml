@@ -1,2 +1,6 @@
 - name: set prompt name
   ansible.builtin.shell: set-prompt {{ app_name }}-{{ env }}
+- name: Install Podman
+  ansible.builtin.yum:
+    name: podman
+    state: present
