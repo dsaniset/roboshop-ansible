@@ -18,6 +18,6 @@
     ports:
       - "8080:8080"
     env:
-      CATALOGUE_HOST: "{{ lookup('hashi_vault','roboshop-{{env}}/data/cart:CATALOGUE_HOST token={{vault_token}} url=http://vault-internal.devops24.shop:8200')}}"
-      CATALOGUE_PORT: "{{ lookup('hashi_vault','roboshop-{{env}}/data/cart:CATALOGUE_PORT token={{vault_token}} url=http://vault-internal.devops24.shop:8200')}}"
-      REDIS_HOST: "{{ lookup('hashi_vault','roboshop-{{env}}/data/cart:REDIS_HOST token={{vault_token}} url=http://vault-internal.devops24.shop:8200')}}"
+      CATALOGUE_HOST: "{{ lookup('hashi_vault','roboshop-{{env}}/data/cart:CATALOGUE_HOST token={{vault_token}} url=http://vault-internal.kdevops23.online:8200')}}"
+      CATALOGUE_PORT: "{{ lookup('hashi_vault','roboshop-{{env}}/data/cart:CATALOGUE_PORT token={{vault_token}} url=http://vault-internal.kdevops23.online:8200')}}"
+      REDIS_HOST: "{{ lookup('hashi_vault','roboshop-{{env}}/data/cart:REDIS_HOST token={{vault_token}} url=http://vault-internal.kdevops23.online:8200')}}"
